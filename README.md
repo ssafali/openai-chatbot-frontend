@@ -49,3 +49,4 @@ OpenAI Chatbot is a project designed to allow users to communicate with a chatbo
 * [CORS middleware](https://github.com/expressjs/cors)
 * [react-speech-kit](https://github.com/MikeyParton/react-speech-kit)
 * [openai](https://openai.com/api/)
+* [Tailwind](https://tailwindcss.com/)

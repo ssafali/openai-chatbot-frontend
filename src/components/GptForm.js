@@ -16,7 +16,7 @@ function GptForm( {
         <input
           autoComplete="off"
           rows="1"
-          className="bg-[#41414f] h-12 w-[80%] pr-28 rounded-md border-none resize-none outline-none m-3 shadow-lg px-3 pb-4 pt-[14px] focus:placeholder:text-white"
+          className="bg-[#34343f] h-12 w-[80%] pr-28 rounded-md border-none resize-none outline-none m-3 shadow-lg px-3 pb-4 pt-[14px] focus:placeholder:text-white"
           placeholder={`${listening ? "Listening..." : "Ask something"}`}
           type="text"
           name="prompt"
@@ -63,11 +63,12 @@ function GptForm( {
           className="absolute bottom-[18px] mt-7 text-[10px] opacity-80 tracking-wider"
           title="Regenerate the last question"
           type="submit"
+          onClick={() => {
+            regenerate();
+          }}
         >
           <img
-            onClick={() => {
-              regenerate();
-            }}
+          
             className="w-6 opacity-75 hover:opacity-100 duration-300 mb-2 ml-1"
             src={regeneratePNG}
             alt="regenerate"

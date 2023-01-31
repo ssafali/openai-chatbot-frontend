@@ -34,6 +34,12 @@ function Gpt() {
   });
   // Following ref is used to scroll bottom when the cumulative height of the messages in chat log exceeds the screen height
   const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+ 
+
   // Following is default values in chat log
   const [chatLog, setChatLog] = useState([
     {
@@ -41,6 +47,9 @@ function Gpt() {
       message: `Hi ${user.name}! How can I help you today? `,
     },
   ]);
+ useEffect(() => {
+    scrollToBottom();
+  }, [chatLog])
 
   // OpenAI can be called on the frontend but here the following calls it from the backend.
   const makeCall = async () => {
@@ -159,26 +168,26 @@ function Gpt() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if(prompt.length > 0) {
+    if(e) {
+      e.preventDefault();
+    }
+    
+    if(prompt.trim().length > 0) {
       makeCall();
       setChatLog((chatLog) => [...chatLog, { user: "Me", message: `${prompt}` }]);
       setPrompt("");
     }
-    else {
-      alert('You must ask something first to repeat your question.')
-    }
   };
 
   return (
-    <div className="flex inset-x-0 text-center absolute w-screen overflow-x-hidden font-nunito">
+    <div className="flex inset-x-0 text-center absolute w-screen overflow-x-hidden font-nunito ">
           <button 
           type="button"   
           onMouseEnter={() => setStyle('block')}
           onMouseLeave={() => setStyle('hidden')}
           className='cursor-default'
           >
-            <svg class="w-7 h-7 opacity-80 hover:opacity-100 fixed left-2  bottom-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
+            <svg className="w-7 h-7 opacity-80 hover:opacity-100 fixed left-2  bottom-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
             </svg>
           </button>
@@ -191,12 +200,12 @@ function Gpt() {
             DALL·E 2
           </button>
           </Link>
-          <p className={`${style} absolute w-36 h-36 left-8 bottom-0 text-sm bg-[#41414f] rounded-lg px-2 py-3`}>
+          <p className={`${style} absolute w-36 h-36 left-8 bottom-0 text-sm  bg-[#34343f] rounded-lg px-2 py-3`}>
             Dall-E is an AI system that can create realistic images and art from a description in natural language.
           </p>
 
       <div className="z-50"><Info/></div>
-      <section className="flex-1 w-[85vw] h-[90vh] pl-[72px]">
+      <section className="flex-1 w-[85vw] h-[90vh] pl-[72px] ">
         <div className="flex flex-col w-[85vw] h-[90vh] text-left">
           {chatLog.map((message, index) => {
             return (

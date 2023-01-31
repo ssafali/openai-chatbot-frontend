@@ -39,7 +39,7 @@ function Info() {
       {show && (
         <div
           ref={ref}
-          className="flex flex-col w-64  text-sm bg-[#41414f] rounded-lg px-1"
+          className="flex flex-col w-64  text-sm bg-[#34343f] rounded-lg px-1"
         >
           <span className="font-bold pt-2 mb-2 tracking-wider">Engines:</span>
           <p className="px-1 pb-4">

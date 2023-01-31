@@ -13,9 +13,9 @@ function ChatMessage({ message, speech }) {
   };
 
   // Scrolls bottom to show the last message added in the chat log
-  useEffect(() => {
-    scrollToBottom();
-  }, [mes.length])
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [mes.length])
 
    // - API answer is stored in a variable called 'mes' and then displayed as if someone's typing it.
   // - If the speech mode is on then the typing is slower in order to make the speech and typing as close as possible to each other.
@@ -42,7 +42,7 @@ function ChatMessage({ message, speech }) {
   return (
     <div>
       <div className="w-[75%]  mt-4 ml-52 shadow-lg">
-        <div className={`${message.user === 'GPT' ? 'bg-[#424b54]/30' : 'bg-[#424b54]/80'} flex  flex-row gap-3 mx-auto p-3 px-10 rounded-lg`} >
+        <div className={`${message.user === 'GPT' ? 'bg-[#1b1e22]' : 'bg-[#252b30]'} flex  flex-row gap-3 mx-auto p-3 px-10 rounded-lg`} >
           <div className={` flex flex-row gap-3 w-[60px] h-[36px] mr-6 rounded-md`}>
             <img
               className="w-11 h-9 p-[1px]  items-center rounded-md"
@@ -65,7 +65,7 @@ function ChatMessage({ message, speech }) {
           </TextareaAutosize>
           
         </div>
-        <div ref={textAreaRef}></div>
+        {/* <div ref={textAreaRef}></div> */}
       </div>
     </div>
   );

@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import { AuthContext } from "../context/auth.context";
 
 function GptSettings({ 
-    selectedEngine, handleEngine, engineList, handleToken, token, handleTemp, temp, clearChatLog }) {
+    selectedEngine, handleEngine, engineList, handleToken, setToken, token, handleTemp, temp, clearChatLog }) {
     const { logOutUser } = useContext(AuthContext);
 
     return (
-        <aside className="bg-[#202123] h-screen w-[280px] right-0 top-0 fixed ">
+        <aside className="bg-[#1a1b1d] h-screen w-[280px] right-0 top-0 fixed ">
            
           <div className="flex flex-col items-left ml-3 mt-12 font-semibold gap-4">
             
@@ -14,8 +14,9 @@ function GptSettings({
               <label className="p-1 mt-[3px]">Engine:</label>
               <select
                 value={selectedEngine}
-                onChange={handleEngine}
-                className="rounded-lg p-1 w-[170px] text-white bg-[#41414f] outline-none opacity-90 hover:opacity-100 font-sans "
+                onChange={(e) => {handleEngine(e); setToken(256)}}
+                className="rounded-lg p-1 w-[170px] text-white bg-[#34343f] outline-none opacity-90 hover:opacity-100 font-sans "
+               
               >
                 {engineList.map((engine, index) => {
                   return (
@@ -71,6 +72,7 @@ function GptSettings({
               >
               </input>
             </div>
+            <a href='/examples' className='hover:underline'>What can I ask?</a>
           </div>
           <button
             className="fixed right-[160px] bottom-6 hover: rounded-md z-10 hover:bg-opacity-5 hover:bg-white duration-300

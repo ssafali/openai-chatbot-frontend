@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
-import Loading from "./Loading";
-import DalleChatLog from "./DalleChatLog";
+import Loading from "../components/Loading";
+import DalleChatLog from "../components/DalleChatLog";
 
 function DallE() {
   const [style, setStyle] = useState("hidden");
@@ -116,7 +116,7 @@ function DallE() {
         </button>
       </Link>
       <div
-        className={`${style} fixed pl-6 w-40 h-52 left-8 bottom-24 text-sm bg-[#41414f] rounded-lg px-2 py-3`}
+        className={`${style} fixed pl-6 w-40 h-52 left-8 bottom-24 text-sm bg-[#34343f] rounded-lg px-2 py-3`}
       >
         <p className="font-bold">Your chatbot to help you with:</p>
         <ul className="list-disc">
@@ -151,14 +151,14 @@ function DallE() {
         })}
       </div>
 
-      <aside className="bg-[#202123] h-screen w-[280px] right-0 top-0 fixed">
+      <aside className="bg-[#1a1b1d] h-screen w-[280px] right-0 top-0 fixed">
         <div className="flex flex-col items-left ml-3 mt-12 font-semibold gap-4">
           <div className="flex flex-row gap-2">
             <label className="p-1 mt-[3px]">Size:</label>
             <select
               value={size}
               onChange={handleSize}
-              className="rounded-lg p-1 w-[170px] text-white bg-[#41414f] outline-none opacity-90 hover:opacity-100"
+              className="rounded-lg p-1 w-[170px] text-white bg-[#34343f] outline-none opacity-90 hover:opacity-100"
             >
               <option value="256x256">256x256</option>
               <option value="512x512">512x512</option>
@@ -203,7 +203,7 @@ function DallE() {
         <input
           autoComplete="off"
           rows="1"
-          className="bg-[#41414f] h-12 w-[80%] pr-20 rounded-md border-none resize-none outline-none m-3 shadow-lg px-3 pb-4 pt-[14px] focus:placeholder:text-white"
+          className="bg-[#34343f] h-12 w-[85%] pr-20 rounded-md border-none resize-none outline-none m-3 shadow-lg px-3 pb-4 pt-[14px] focus:placeholder:text-white"
           placeholder={"Describe the image you want"}
           type="text"
           name="prompt"
@@ -213,7 +213,7 @@ function DallE() {
         {/* Submits user input */}
         <button type="submit">
           <svg
-            className="w-6 h-6 absolute right-80 bottom-9 cursor-pointer opacity-75 hover:opacity-100 duration-300"
+            className="w-6 h-6 absolute right-[16rem] bottom-9 cursor-pointer opacity-75 hover:opacity-100 duration-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

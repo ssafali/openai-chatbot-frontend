@@ -18,7 +18,7 @@ function Info() {
   }, []);
 
   return (
-    <div className="fixed top-3 right-3">
+    <div className="fixed top-3 right-3 ">
       <button className="mb-5" type="button" onClick={() => setShow(!show)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

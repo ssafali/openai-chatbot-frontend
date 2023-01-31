@@ -4,7 +4,7 @@ function DalleChatLog({ message, imageURLs, size }) {
     <div  className="flex flex-col overflow-x-hidden  ">
     {  message.user === 'GPT' && 
     (        
-        <div className= {` flex flex-row gap-2 ml-[208px] items-center justify-start text-left bg-[#424b54]/30 pb-7 mt-4  rounded-lg pl-9 w-[75%] h-[62px] `}>
+        <div className= {` flex flex-row gap-2 ml-[208px] items-center justify-start text-left bg-[#1b1e22] pb-7 mt-4  rounded-lg pl-9 w-[75%] h-[62px] `}>
             <img
                   className="w-11 h-9 p-[1px] mt-[26px] items-center rounded-md"
                   src={robotSVG}
